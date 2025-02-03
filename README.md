@@ -24,8 +24,6 @@ Here are some screenshots of the project:
 ![Screenshot 5](mnt/5.jpg)
 ![Screenshot 6](mnt/6.jpg)
 
-📄 [View the PDF Documentation](sketck.pdf)
-
 1. 🏠 **Home Screen**
 2. 📊 **Step Progress Tracking**
 3. 🔔 **Task Reminder & Notifications**
