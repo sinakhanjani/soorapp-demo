@@ -32,8 +32,6 @@ Here are some screenshots of the project:
 4. 🛒 **Service Booking**
 5. ✅ **Final Checklist**
 
-(Screenshots will be included here)
-
 ## 🎯 Purpose
 This project was developed as a **demo** to showcase the concept of a structured wedding planning app. The repository is being published on GitHub **for demonstration purposes only**. The main goal is to display a portion of the **source code** to showcase the **coding style and architecture**.
 
