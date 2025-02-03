@@ -12,11 +12,17 @@ This project is a **wedding planning application** designed to help users **orga
 
 ## 🛠 Technology Stack
 - 🖥 **Backend**: Node.js
-- 🍏 **iOS**: Native Swift
+- 🍏 **iOS**: Swift
 - 🤖 **Android**: Kotlin
 
 ## 📸 Screenshots
-Here are some sample screenshots showcasing the application interface:
+Here are some screenshots of the project:
+![Screenshot 1](mnt/1.jpg)
+![Screenshot 2](mnt/2.jpg)
+![Screenshot 3](mnt/3.jpg)
+![Screenshot 4](mnt/4.jpg)
+![Screenshot 5](mnt/5.jpg)
+![Screenshot 6](mnt/6.jpg)
 
 1. 🏠 **Home Screen**
 2. 📊 **Step Progress Tracking**
