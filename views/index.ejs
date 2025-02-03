@@ -1,0 +1,81 @@
+<% include ./partials/header.ejs %>
+
+<!--add new stylesheets here-->
+<style>
+    .welcome-msg{
+        margin-bottom: 20px;
+    }
+</style>
+<!--/add new stylesheets here-->
+
+<% include ./partials/header-2.ejs %>
+
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- flash message -->
+    <% include ./partials/flash.ejs %>
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1>
+            داشبورد
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> خانه</a></li>
+            <li class="active">داشبورد</li>
+        </ol>
+    </section>
+    <!-- Main content -->
+    <section class="content">
+        <!-- Info boxes -->
+        <div class="row">
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="info-box">
+                    <span class="info-box-icon bg-yellow"><i class="ion ion-ios-people-outline"></i></span>
+                    <div class="info-box-content">
+                        <span class="info-box-text">تعداد کاربران</span>
+                        <span class="info-box-number"><%= stats.usersCount %></span>
+                    </div>
+                    <!-- /.info-box-content -->
+                </div>
+                <!-- /.info-box -->
+            </div>
+            <!-- /.col -->
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="info-box">
+                    <span class="info-box-icon bg-aqua"><i class="ion ion-ios-pulse"></i></span>
+                    <div class="info-box-content">
+                        <span class="info-box-text">تعداد مراسم ثبت شده</span>
+                        <span class="info-box-number"><%= stats.eventsCount %></span>
+                    </div>
+                    <!-- /.info-box-content -->
+                </div>
+                <!-- /.info-box -->
+            </div>
+            <!-- /.col -->
+            <!-- fix for small devices only -->
+            <div class="clearfix visible-sm-block"></div>
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="info-box">
+                    <span class="info-box-icon bg-red"><i class="ion ion-ios-filing-outline"></i></span>
+                    <div class="info-box-content">
+                        <span class="info-box-text">اعتبار پیامکی باقی مانده پنل</span>
+                        <span class="info-box-number"><%= stats.remainingCredit %></span>
+                    </div>
+                    <!-- /.info-box-content -->
+                </div>
+                <!-- /.info-box -->
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+        <h3 class="welcome-msg"><%= currentAdmin.fullName %> عزیز،</h3>
+        <h4>به پنل مدیریت سور اپ خوش آمدید. لطفا قسمت مورد نظر را از منوی سمت راست انتخاب فرمایید.</h4>
+    </section>
+    <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+<% include ./partials/footer-2.ejs %>
+<!--add new scripts here-->
+
+<!--/add new scripts here-->
+<% include ./partials/footer.ejs %>

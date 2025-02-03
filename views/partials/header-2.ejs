@@ -1,0 +1,166 @@
+</head>
+<body class="hold-transition skin-blue-light sidebar-mini">
+    <div class="wrapper">
+    <header class="main-header">
+    <!-- Logo -->
+    <a href="/web" class="logo">
+    <!-- mini logo for sidebar mini 50x50 pixels -->
+<span class="logo-mini">پنل</span>
+<!-- logo for regular state and mobile devices -->
+<span class="logo-lg"><b>پنل مدیریت سور آپ</b></span>
+</a>
+<!-- Header Navbar: style can be found in header.less -->
+<nav class="navbar navbar-static-top">
+    <!-- Sidebar toggle button-->
+    <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+        <span class="sr-only">Toggle navigation</span>
+    </a>
+    <div class="navbar-custom-menu">
+        <ul class="nav navbar-nav">
+            <!-- User Account: style can be found in dropdown.less -->
+            <li class="dropdown user user-menu">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    <img src="/assets/images/default-user-72.png" class="user-image" alt="User Image">
+                    <span class="hidden-xs"><%= currentAdmin.fullName %></span>
+                    <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                    <!-- User image -->
+                    <li class="user-header">
+                        <img src="/assets/images/default-user-72.png" class="img-circle" alt="User Image">
+                            <p>
+                                <%= currentAdmin.fullName %>
+                                <% if(currentAdmin.isManager){ %>
+                                    <small>مدیریت سایت</small>
+                                <% } else { %>
+                                    <small>کارشناس</small>
+                                <% } %>
+                            </p>
+                    </li>
+                    <!-- Menu Footer-->
+                    <li class="user-footer">
+                        <div class="pull-right">
+                            <a class="btn btn-default btn-flat" href=<%=`/web/admin/${currentAdmin._id}`%>>پروفایل</a>
+                        </div>
+                        <div class="pull-right">
+                            <a href="/web/admin/changepassword" class="btn btn-default btn-flat">تغییر رمز عبور</a>
+                        </div>
+                        <div class="pull-right">
+                            <a href="/web/logout" class="btn btn-default btn-flat">خروج</a>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</nav>
+</header>
+<!-- right side column. contains the logo and sidebar -->
+<aside class="main-sidebar">
+    <!-- sidebar: style can be found in sidebar.less -->
+    <section class="sidebar">
+        <!-- Sidebar user panel -->
+        <div class="user-panel">
+            <div class="pull-right image">
+                <img src="/assets/images/logo-150.png" class="img-sm" alt="User Image">
+            </div>
+            <div class="pull-right info">
+                <p>سور آپ</p>
+            </div>
+        </div>
+        <!-- sidebar menu: : style can be found in sidebar.less -->
+        <ul class="sidebar-menu" data-widget="tree">
+            <li class="header">منو</li>
+            <li class="active">
+                <a href="/index">
+                    <i class="fa fa-dashboard"></i> <span>داشبورد</span>
+                </a>
+            </li>
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-globe"></i>
+                    <span>کاربران</span>
+                    <span class="pull-left-container">
+                        <i class="fa fa-angle-right pull-left"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="/web/users"><i class="fa fa-circle-o"></i>مشاهده کاربران</a></li>
+                    <li><a href="/web/users/csv/allUsers"><i class="fa fa-circle-o"></i>خروجی CSV از لیست کاربران</a></li>
+                </ul>
+            </li>
+            <li class="">
+                <a href="/web/article">
+                    <i class="fa fa-globe"></i>
+                    <span>مقاله</span>
+                </a>
+            </li>
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-gears"></i>
+                    <span>دسته بندی خدمات</span>
+                    <span class="pull-left-container">
+                        <i class="fa fa-angle-right pull-left"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="/web/productCategory/new"><i class="fa fa-circle-o"></i>دسته بندی خدمت جدید</a></li>
+                    <li><a href="/web/productCategory"><i class="fa fa-circle-o"></i>مشاهده دسته بندی خدمت ها</a></li>
+                </ul>
+            </li>
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-gears"></i>
+                    <span>خدمات</span>
+                    <span class="pull-left-container">
+                        <i class="fa fa-angle-right pull-left"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="/web/product/new"><i class="fa fa-circle-o"></i>خدمت جدید</a></li>
+                    <li><a href="/web/product"><i class="fa fa-circle-o"></i>مشاهده خدمت ها</a></li>
+                </ul>
+            </li>
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-briefcase"></i>
+                    <span>تماس با کاربران</span>
+                    <span class="pull-left-container">
+                        <i class="fa fa-angle-right pull-left"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="/web/contact/sms"><i class="fa fa-circle-o"></i>ارسال پیامک گروهی</a></li>
+<!--                    <li><a href="/web/subcategories"><i class="fa fa-circle-o"></i>ارسال نوتیفیکیشن</a></li>-->
+                </ul>
+            </li>
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-truck"></i>
+                    <span>آمار</span>
+                    <span class="pull-left-container">
+                        <i class="fa fa-angle-right pull-left"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="/web/stats"><i class="fa fa-circle-o"></i>مشاهده آمار</a></li>
+                </ul>
+            </li>
+            <% if(currentAdmin.isManager){ %>
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-gears"></i> <span>مدیریت</span>
+                            <span class="pull-left-container">
+                            <i class="fa fa-angle-right pull-left"></i>
+                        </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="/web/admin/new"><i class="fa fa-circle-o"></i>کارشناس جدید</a></li>
+                        <li><a href="/web/admin"><i class="fa fa-circle-o"></i>مشاهده کارشناسان</a></li>
+                    </ul>
+                </li>
+            <% } %>
+        </ul>
+    </section>
+    <!-- /.sidebar -->
+</aside>

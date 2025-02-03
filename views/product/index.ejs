@@ -1,0 +1,134 @@
+<% include ../partials/header.ejs %>
+
+<!--add new stylesheets here-->
+<!-- DataTables -->
+<link rel="stylesheet" href="/css/dataTables.bootstrap.min.css">
+<link rel="stylesheet" href="/css/responsive.bootstrap.min.css">
+<link rel="stylesheet" href="/css/fk8.css">
+<!--/add new stylesheets here-->
+
+<% include ../partials/header-2.ejs %>
+
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+
+    <!-- flash message -->
+    <% include ../partials/flash.ejs %>
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1>
+            خدمات
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> خانه</a></li>
+            <li><a href="#">خدمات</a></li>
+            <li class="active">مشاهده خدمات</li>
+        </ol>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="box">
+                    <div class="box-header">
+                        <h3 class="box-title">مشاهده خدمات</h3>
+                        <select id="selectCategory" name="selectCategory" class="form-control">
+                            <option value='all'>همه</option>
+                            <% data.category.forEach(admin => { %>
+                                <option value=<%= admin._id %>>
+                                    <%= admin.title %>
+                                </option>
+                            <% }) %>
+                        </select>
+                    </div>
+                    <!-- /.box-header -->
+                    <div class="box-body">
+                        <table id="example1" class="table table-bordered table-striped" style="width: 100%">
+                            <thead>
+                                <tr>
+                                    <th>عنوان</th>
+                                    <th>وضعیت</th>
+                                    <th>ویرایش</th>
+                                </tr>
+                                <script>
+                                    var allRecords = <%- JSON.stringify(data.records) %>;
+                                </script>
+                            </thead>
+                            <tbody id="myTbody">
+                            <% data.records.forEach(admin => { %>
+                                <tr class="item <%= admin.isValid ? '' : 'notvalid' %>">
+                                    <td><%= admin.title %></td>
+                                    <td><%= (admin.isValid) ? 'نمایش' : 'عدم نمایش' %></td>
+                                    <% if(currentAdmin.isManager) { %>
+                                        <td>
+                                            <a href=<%=`/web/product/${admin._id}`%>><button class="btn btn-sm btn-warning">ویرایش</button></a>
+                                            <form action=<%=`/web/product/${admin._id}/delete`%> method="POST" style="display: inline-block">
+                                                <button class="btn btn-sm btn-danger" type="submit">حذف</button>
+                                            </form>
+                                        </td>
+                                    <% } else { %>
+                                        <% if(currentAdmin.fullName === admin.fullName){ %>
+                                            <td>
+                                                <a href=<%=`/web/article/${admin._id}`%>><button class="btn btn-sm btn-warning">ویرایش</button></a>
+                                            </td>
+                                        <% } else { %>
+                                            <td></td>
+                                        <% } %>
+                                    <% } %>
+                                </tr>
+                            <% }) %>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- /.box-body -->
+                </div>
+                <!-- /.box -->
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+    </section>
+    <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+
+<% include ../partials/footer-2.ejs %>
+
+<!--add new scripts here-->
+<script src="/js/jquery.dataTables.min.js"></script>
+<script src="/js/dataTables.bootstrap.min.js"></script>
+<script src="/js/responsive.bootstrap.min.js"></script>
+<script src="/js/dataTables.responsive.js"></script>
+
+<script src="/js/datatables-persian.js"></script>
+<!--/add new scripts here-->
+
+
+<!-- FK8 -->
+<script>
+    let sc = document.getElementById('selectCategory');
+    sc.addEventListener('change', () => {
+        var selection = sc.options[sc.selectedIndex].value;
+
+        let result = (selection !== 'all') ? allRecords.filter(x => x.categoryId == selection) : result;
+        
+        let temp = '';
+        result.map((item) => {
+            temp +=  `
+                <tr>
+                    <td>${item.title}</td>
+                    <td>
+                        <a href='/web/product/${item._id}'><button class="btn btn-sm btn-warning">ویرایش</button></a>
+                        <form action='/web/product/${item._id}/delete' method="POST" style="display: inline-block">
+                            <button class="btn btn-sm btn-danger" type="submit">حذف</button>
+                        </form>
+                    </td>
+                </tr>`
+        });
+        
+        document.getElementById('myTbody').innerHTML = temp;
+    })
+</script>
+
+<% include ../partials/footer.ejs %>

@@ -1,0 +1,71 @@
+<% include ../partials/header.ejs %>
+
+<!--add new stylesheets here-->
+<link rel="stylesheet" href="/css/pace.min.css">
+<!--/add new stylesheets here-->
+
+<% include ../partials/header-2.ejs %>
+
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+
+    <!-- flash message -->
+    <% include ../partials/flash.ejs %>
+
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1>
+            درخواست ها
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> خانه</a></li>
+            <li class="active">تماس با کاربران</li>
+        </ol>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="row">
+            <!-- right col -->
+            <section class="col-xs-12">
+                <!-- general form elements -->
+                <div class="box box-primary">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">ارسال پیامک</h3>
+                    </div>
+                    <!-- /.box-header -->
+                    <!-- form start -->
+                    <div id="sms">
+                        <form id="sms-form" role="form" action="/web/contact/sms" method="post">
+                            <div class="box-body">
+
+                                <div class="form-group">
+                                    <label for="message">متن پیامک<span>*</span></label>
+                                    <textarea class="form-control" id="message" name="message" required></textarea>
+                                </div>
+                            </div>
+                            <!-- /.box-body -->
+                            <div class="box-footer">
+                                <button type="submit" class="btn btn-primary pull-left">ارسال</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </section>
+    <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+
+
+<% include ../partials/footer-2.ejs %>
+
+<!--add new scripts here-->
+
+<script data-pace-options='{ "ajax": true, "document": false, "eventLag": false, "startOnPageLoad": false }' src="/js/pace.min.js"></script>
+<script src="/js/contact.custom.js"></script>
+
+<!--/add new scripts here-->
+
+<% include ../partials/footer.ejs %>

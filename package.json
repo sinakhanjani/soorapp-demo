@@ -1,0 +1,55 @@
+{
+  "name": "soorapp",
+  "version": "1.0.0",
+  "description": "wedding management application",
+  "main": "server.js",
+  "scripts": {
+    "test": "jest",
+    "dev": "pm2 start ecosystem.config.js --env development",
+    "server": "pm2 start ecosystem.config.js --env production",
+    "stop": "pm2 stop ecosystem.config.js",
+    "restart": "pm2 restart ecosystem.config.js",
+    "delete": "pm2 delete ecosystem.config.js",
+    "monit": "pm2 monit",
+    "log": "pm2 logs",
+    "list": "pm2 ls",
+    "start": "node server.js"
+  },
+  "keywords": [
+    "wedding",
+    "farsi",
+    "management"
+  ],
+  "author": "Arootin Aghazaryan",
+  "license": "ISC",
+  "dependencies": {
+    "agenda": "^2.0.2",
+    "axios": "^0.19.0",
+    "body-parser": "^1.19.0",
+    "connect-flash": "^0.1.1",
+    "connect-mongo": "^3.0.0",
+    "csv-stringify": "^5.3.3",
+    "datatables-query": "^0.2.0",
+    "ejs": "^2.6.2",
+    "express": "^4.17.1",
+    "express-session": "^1.16.2",
+    "jsonwebtoken": "^8.5.1",
+    "moment": "^2.24.0",
+    "mongoose": "^5.6.8",
+    "mongoose-datatables": "^3.2.0",
+    "multer": "^1.4.2",
+    "nodemon": "^1.19.3",
+    "passport": "^0.4.0",
+    "passport-jwt": "^4.0.0",
+    "passport-local": "^1.0.0",
+    "passport-local-mongoose": "^5.0.1",
+    "persian-date": "^1.1.0",
+    "pm2": "^3.5.1",
+    "winston": "^3.2.1"
+  },
+  "devDependencies": {
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.18.2"
+  }
+}

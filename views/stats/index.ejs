@@ -1,0 +1,174 @@
+<% include ../partials/header.ejs %>
+
+<!--add new stylesheets here-->
+<!-- DataTables -->
+<link rel="stylesheet" href="/css/dataTables.bootstrap.min.css">
+<link rel="stylesheet" href="/css/responsive.bootstrap.min.css">
+<!--/add new stylesheets here-->
+
+<% include ../partials/header-2.ejs %>
+
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+
+    <!-- flash message -->
+    <% include ../partials/flash.ejs %>
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1>
+            اطلاعات آماری
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> خانه</a></li>
+            <li>اطلاعات آماری</li>
+            <li class="active">آمار</li>
+        </ol>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="box">
+                    <div class="box-header">
+                        <h3 class="box-title">اطلاعات استان ها</h3>
+                    </div>
+                    <!-- /.box-header -->
+                    <div class="box-body table-responsive no-padding">
+                        <table id="provinces" class="table table-hover">
+                            <thead>
+                            <tr>
+                                <th>استان</th>
+                                <th>تعداد کاربر</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <% provinces.forEach(province => { %>
+                                <tr>
+                                    <td><%= province.name %></td>
+                                    <td><%= province.count %></td>
+                                </tr>
+                            <% }) %>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- /.box-body -->
+                </div>
+                <!-- /.box -->
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="box">
+                    <div class="box-header">
+                        <h3 class="box-title">اطلاعات شهر ها</h3>
+                    </div>
+                    <!-- /.box-header -->
+                    <div class="box-body table-responsive no-padding">
+                        <table id="cities" class="table table-hover">
+                            <thead>
+                            <tr>
+                                <th>شهر</th>
+                                <th>استان</th>
+                                <th>تعداد کاربر</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <% cities.forEach(city => { %>
+                                <tr>
+                                    <td><%= city.name %></td>
+                                    <td><%= city.province %></td>
+                                    <td><%= city.count %></td>
+                                </tr>
+                            <% }) %>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- /.box-body -->
+                </div>
+                <!-- /.box -->
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="box">
+                    <div class="box-header">
+                        <h3 class="box-title">اطلاعات جنسیت کاربران</h3>
+                    </div>
+                    <!-- /.box-header -->
+                    <div class="box-body table-responsive no-padding">
+                        <table id="gender" class="table table-hover" style="width: 100%">
+                            <thead>
+                                <tr>
+                                    <th>جنسیت</th>
+                                    <th>تعداد کاربر</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            <% genders.forEach(gender => { %>
+                                <tr>
+                                    <td><%= gender.name %></td>
+                                    <td><%= gender.count %></td>
+                                </tr>
+                            <% }) %>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- /.box-body -->
+                </div>
+                <!-- /.box -->
+            </div>
+        </div>
+    </section>
+    <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+
+
+<% include ../partials/footer-2.ejs %>
+
+<!--add new scripts here-->
+<script src="/js/jquery.dataTables.min.js"></script>
+<script src="/js/dataTables.bootstrap.min.js"></script>
+<script src="/js/responsive.bootstrap.min.js"></script>
+<script src="/js/dataTables.responsive.js"></script>
+
+<script>
+    var config = {
+      responsive: true,
+      language: {
+        decimal: '',
+        emptyTable: 'اطلاعاتی برای نمایش وجود ندارد',
+        info: 'نمایش از رکورد _START_ تا _END_ از مجموع _TOTAL_ رکوزد',
+        infoEmpty: '',
+        infoFiltered: '(فیلتر شده از مجموع _MAX_ رکورد)',
+        infoPostFix: '',
+        thousands: ',',
+        lengthMenu: 'نمایش _MENU_ رکورد',
+        loadingRecords: 'در حال پردازش ...',
+        processing: 'در حال پردازش ...',
+        search: 'جستجو:',
+        zeroRecords: 'هیچ رکوردی یافت نشد',
+        paginate: {
+          first: 'اول',
+          last: 'آخر',
+          next: 'بعدی',
+          previous: 'قبلی',
+        },
+      },
+    }
+    $(function () {
+        $('#provinces').DataTable(config)
+        $('#cities').DataTable(config)
+        $('#gender').DataTable({
+          paging: false,
+          searching: false,
+          responsive: true,
+          ordering:  false,
+          language: config.language
+        })
+    })
+</script>
+<!--/add new scripts here-->
+
+<% include ../partials/footer.ejs %>

@@ -1,0 +1,24 @@
+<% if (warning && warning.length > 0){ %>
+    <div class="alert alert-warning alert-dismissible">
+        <button type="button" class="close pull-left" data-dismiss="alert" aria-hidden="true">&times;</button>
+        <h4><i class="icon fa fa-warning"></i> توجه</h4>
+        <%= warning %>
+    </div>
+<% } %>
+
+
+<% if (success && success.length > 0){ %>
+    <div class="alert alert-success alert-dismissible">
+        <button type="button" class="close pull-left" data-dismiss="alert" aria-hidden="true">&times;</button>
+        <h4><i class="icon fa fa-check"></i> توجه</h4>
+        <%= success %>
+    </div>
+<% } %>
+
+<% if (error && error.length > 0){ %>
+    <div class="alert alert-danger alert-dismissible">
+        <button type="button" class="close pull-left" data-dismiss="alert" aria-hidden="true">&times;</button>
+        <h4><i class="icon fa fa-ban"></i> خطا</h4>
+        <%= error %>
+    </div>
+<% } %>
